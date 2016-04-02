@@ -98,8 +98,8 @@ int * find_sequences(int *arr, int len){
 			i++;
 		}
 		ans[1] = i - 1;
-		ans[2] = i;
 		ans[3] = len - 1;
+		ans[2] = i;
 	}	
 	return ans;
 }
