@@ -32,6 +32,74 @@ Difficulty : Medium
 #include <math.h>
 
 int * find_sequences(int *arr, int len){
-	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	return NULL;
+	if (arr == NULL)
+		return NULL;
+	int ans[6],k,i=1,temp,tempi;
+	k = arr[i] - arr[i-1];
+	temp = k;
+	while (temp==k)
+	{
+		temp = arr[i + 1] - arr[i];
+		i++;
+	}
+	if (i != 2)
+	{
+		ans[0] = 0;
+		ans[1] = i - 1;
+		tempi = i;
+		k = arr[i+1] - arr[i];
+		temp = k;
+		while (temp == k)
+		{
+			temp = arr[i + 1] - arr[i];
+			i++;
+		}
+		if (i != tempi + 2)
+		{
+			ans[2] = tempi;
+			ans[3] = i - 2;
+			ans[4] = i-1;
+			ans[5] = len - 1;
+		}
+		else
+		{
+			i = tempi+1;
+			k = arr[i] / arr[i - 1];
+			temp = k;
+			while (temp == k)
+			{
+				temp = arr[i + 1] / arr[i];
+				i++;
+			}
+			ans[4] = tempi;
+			ans[5] = i - 1;
+			ans[2] = i;
+			ans[3] = len - 1;
+		}
+	}
+	else
+	{
+		i = 1;
+		k = arr[i]/arr[i - 1];
+		temp = k;
+		while (temp == k)
+		{
+			temp = arr[i + 1]/arr[i];
+			i++;
+		}
+		ans[4] = 0;
+		ans[5] = i - 1;
+		ans[0] = i;
+		k = arr[i+1] - arr[i];
+		temp = k;
+		while (temp == k)
+		{
+			temp = arr[i + 1] - arr[i];
+			i++;
+		}
+		ans[1] = i - 1;
+		ans[2] = i;
+		ans[3] = len - 1;
+	}	
+	return ans;
 }

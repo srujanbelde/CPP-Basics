@@ -4,7 +4,6 @@ Write a function to merge those two linked lists .
 The First Linked List head should point to the final merged linked list .
 The Final merged linked list should also be in SORTED order and a Circular Linked List.
 You need to return the Length of Final SLL.
-
 *********
 The First linked list head should now point to the Final sorted(Ascending) Linked list First Node
 *********
